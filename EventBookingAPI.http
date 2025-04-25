@@ -1,0 +1,28 @@
+@baseUrl = http://localhost:5261
+
+### Get all events
+GET {{baseUrl}}/api/eventbooking/events
+Accept: application/json
+
+### Get user's reservation
+@userId = user123
+GET {{baseUrl}}/api/eventbooking/reservations/{{userId}}
+Accept: application/json
+
+### Add event to reservation
+POST {{baseUrl}}/api/eventbooking/reservations/{{userId}}/events
+Content-Type: application/json
+
+{
+    "eventId": "event123",
+    "ticketCount": 2
+}
+
+### Remove event from reservation
+@eventId = event123
+DELETE {{baseUrl}}/api/eventbooking/reservations/{{userId}}/events/{{eventId}}
+Accept: application/json
+
+### Confirm reservation
+POST {{baseUrl}}/api/eventbooking/reservations/{{userId}}/confirm
+Accept: application/json

@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+		"name": "Event Booking API",
+		"description": "Collection for testing the Event Booking API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Events",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5261/api/eventbooking/events",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5261",
+					"path": ["api", "eventbooking", "events"]
+				}
+			}
+		},
+		{
+			"name": "Get User's Reservation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5261/api/eventbooking/reservations/{{userId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5261",
+					"path": ["api", "eventbooking", "reservations", "{{userId}}"],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "user123"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Add Event to Reservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventId\": \"evt-001\",\n    \"ticketCount\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5261/api/eventbooking/reservations/{{userId}}/events",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5261",
+					"path": ["api", "eventbooking", "reservations", "{{userId}}", "events"],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "user123"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Remove Event from Reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5261/api/eventbooking/reservations/{{userId}}/events/{{eventId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5261",
+					"path": ["api", "eventbooking", "reservations", "{{userId}}", "events", "{{eventId}}"],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "user123"
+						},
+						{
+							"key": "eventId",
+							"value": "evt-001"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Confirm Reservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5261/api/eventbooking/reservations/{{userId}}/confirm",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5261",
+					"path": ["api", "eventbooking", "reservations", "{{userId}}", "confirm"],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "user123"
+						}
+					]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5261"
+		}
+	]
+} 

@@ -42,7 +42,7 @@ A robust RESTful API for managing event bookings, built with .NET 8.0. This syst
 1. Clone the repository
 
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/ebra8/EventBookingAPI
 ```
 
 2. Navigate to the project directory
